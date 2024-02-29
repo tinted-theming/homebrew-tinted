@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+update_homebrew_formula() {
+  local source_filename="latest-release.tar.gz"
+  local download_url=$(curl -s "https://api.github.com/repos/tinted-theming/tinty/releases/latest" | jq -r ".tarball_url")
+  local formula_file="Formula/tinty.rb"
+
+  curl -L $download_url -o $source_filename
+  
+  if [ -s "$source_filename" ]; then
+    local sha256=$(shasum -a 256 $source_filename | awk '{print $1}')
+    sed -i "s|url .*|url \"$download_url\"|" "$formula_file"
+    sed -i "s/sha256 .*/sha256 \"$sha256\"/" "$formula_file"
+
+    rm $source_filename
+  else
+    if [ -e "$source_filename" ]; then
+      rm $source_filename
+    fi
+
+    echo "Error downloading tarball" && exit 1;
+  fi
+}
+
+update_homebrew_formula "$@"

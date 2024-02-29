@@ -1,0 +1,28 @@
+name: Update Tinty
+on:
+  workflow_dispatch:
+
+jobs:
+  update_formula:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ github.ref }}
+
+      - name: Package
+        shell: bash
+        run: |
+          $GITHUB_WORKSPACE/scripts/update_homebrew_formula
+
+      - name: Commit the changes, if any
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Tinty formula to the latest version
+          branch: ${{ github.head_ref }}
+          commit_user_name: tinted-theming-bot
+          commit_user_email: tintedtheming@proton.me
+          commit_author: tinted-theming-bot <tintedtheming@proton.me>
+
