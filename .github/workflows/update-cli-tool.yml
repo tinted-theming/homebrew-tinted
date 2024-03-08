@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       text_input:
-        description: 'Command line tool name (tinty or builder-rust)'
+        description: 'Command line tool name (tinty or tinted-builder-rust)'
         required: true
         default: 'tinty'
 

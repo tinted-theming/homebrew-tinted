@@ -7,12 +7,12 @@ brew tap tinted-theming/tinted
 brew install tinty
 ```
 
-## [builder-rust]
+## [tinted-builder-rust]
 
 ```shell
 brew tap tinted-theming/tinted
-brew install builder-rust
+brew install tinted-builder-rust
 ```
 
 [Tinty]: https://github.com/tinted-theming/tinty
-[builder-rust]: https://github.com/tinted-theming/builder-rust
+[tinted-builder-rust]: https://github.com/tinted-theming/tinted-builder-rust
