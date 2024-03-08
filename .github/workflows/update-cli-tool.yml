@@ -1,6 +1,11 @@
-name: Update Tinty
+name: Update CLI tool
 on:
   workflow_dispatch:
+    inputs:
+      text_input:
+        description: 'Command line tool name (tinty or builder-rust)'
+        required: true
+        default: 'tinty'
 
 jobs:
   update_formula:
@@ -15,7 +20,7 @@ jobs:
       - name: Package
         shell: bash
         run: |
-          $GITHUB_WORKSPACE/scripts/update_homebrew_formula
+          $GITHUB_WORKSPACE/scripts/update_homebrew_formula "${{ github.event.inputs.text_input }}"
 
       - name: Commit the changes, if any
         uses: stefanzweifel/git-auto-commit-action@v4
