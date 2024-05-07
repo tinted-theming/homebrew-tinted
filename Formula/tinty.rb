@@ -1,8 +1,8 @@
 class Tinty < Formula
   desc "Change the theme of your terminal, text editor and anything else with one command."
   homepage "https://github.com/tinted-theming/tinty"
-  url "https://api.github.com/repos/tinted-theming/tinty/tarball/v0.11.0"
-  sha256 "8fe68492195b03aafd7740ba2e0dd1d8cd811c3fd3598aac09bda8ae2549276d"
+  url "https://api.github.com/repos/tinted-theming/tinty/tarball/v0.13.0"
+  sha256 "a9b534385510e68d39a746a078807860864106e1392c51b792b92e9e408a29b6"
   license "MIT"
 
   depends_on "rust" => :build
