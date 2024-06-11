@@ -8,7 +8,7 @@ class Ribboncurls < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", ".", "--bin", "ribboncurls"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "ribboncurls-cli"
   end
 
   test do
