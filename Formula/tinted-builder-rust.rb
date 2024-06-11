@@ -8,7 +8,7 @@ class TintedBuilderRust < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--package", "tinted-builder-rust", "--path", "."
   end
 
   test do
