@@ -3,12 +3,12 @@ class TintedBuilderRust < Formula
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
   url "https://api.github.com/repos/tinted-theming/tinted-builder-rust/tarball/v0.6.0"
   sha256 "a98010a0d83cf471880bc6fb3173ec1ab2c408f491d2fd0fb5f75e07b6ab36ff"
-  license "GPL-3.0"
+  license "MIT"
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--package", "tinted-builder-rust", "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", ".", "--bin", "tinted-builder-rust"
   end
 
   test do
