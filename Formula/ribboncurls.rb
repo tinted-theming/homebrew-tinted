@@ -1,8 +1,8 @@
 class Ribboncurls < Formula
   desc "Mustache template rendering engine"
   homepage "https://github.com/tinted-theming/ribboncurls"
-  url ""
-  sha256 ""
+  url "https://api.github.com/repos/tinted-theming/ribboncurls/tarball/cli-v0.2.0"
+  sha256 "815d2ac22182b953d6af9a6662d4cf9c73d954671f2c574f8287b5fc898e6211"
   license "APACHE or MIT"
 
   depends_on "rust" => :build
