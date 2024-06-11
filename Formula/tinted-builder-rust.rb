@@ -1,4 +1,4 @@
-class Tinty < Formula
+class TintedBuilderRust < Formula
   desc "A base16 and base24 builder written in Rust, focused on convenience for template maintainers."
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
   url "https://api.github.com/repos/tinted-theming/tinted-builder-rust/tarball/v0.6.0"

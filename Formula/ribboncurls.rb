@@ -1,4 +1,4 @@
-class Tinty < Formula
+class Ribboncurls < Formula
   desc "Mustache template rendering engine"
   homepage "https://github.com/tinted-theming/ribboncurls"
   url ""
