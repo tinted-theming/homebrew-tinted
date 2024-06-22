@@ -1,8 +1,8 @@
 class TintedBuilderRust < Formula
   desc "A base16 and base24 builder written in Rust, focused on convenience for template maintainers."
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
-  url "https://api.github.com/repos/tinted-theming/tinted-builder-rust/tarball/v0.6.0"
-  sha256 "a98010a0d83cf471880bc6fb3173ec1ab2c408f491d2fd0fb5f75e07b6ab36ff"
+  url "https://api.github.com/repos/tinted-theming/tinted-builder-rust/tarball/v0.7.0"
+  sha256 "a1e077725e0b4c0f072753078b70e14ae8e179604a45b87ccc239607dbae1e63"
   license "MIT"
 
   depends_on "rust" => :build
