@@ -2,25 +2,33 @@
 
 update_homebrew_formula() {
   local app_name="$1"
-  local source_filename="latest-release.tar.gz"
-  local download_url=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".tarball_url")
+  local repo="tinted-theming/$app_name"
   local formula_file="Formula/$app_name.rb"
 
-  curl -L $download_url -o $source_filename
+  local architectures=(
+    "universal-apple-darwin"
+    "x86_64-unknown-linux-gnu"
+    "i686-unknown-linux-gnu"
+    "aarch64-unknown-linux-gnu"
+  )
 
-  if [ -s "$source_filename" ]; then
-    local sha256=$(shasum -a 256 $source_filename | awk '{print $1}')
-    sed -i "s|url .*|url \"$download_url\"|" "$formula_file"
-    sed -i "s/sha256 .*/sha256 \"$sha256\"/" "$formula_file"
+  local urls=()
+  local sha256s=()
 
-    rm $source_filename
-  else
-    if [ -e "$source_filename" ]; then
-      rm $source_filename
-    fi
+  local latest_version=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".tag_name")
+  latest_version=${latest_version#v}
+  sed -i "s|version \".*\"$|version \"$latest_version\"|" "$formula_file"
 
-    echo "Error downloading tarball" && exit 1;
-  fi
+  for arch in "${architectures[@]}"; do
+    local filename="$app_name-$arch.tar.gz"
+    local download_url=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".assets[] | select(.name == \"$filename\") | .browser_download_url")
+    local sha256_filename="$app_name-$arch.sha256"
+    local sha256_download_url=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".assets[] | select(.name == \"$sha256_filename\") | .browser_download_url")
+    local sha256=$(curl -sL "$sha256_download_url" | awk '{print $1}')
+
+    sed -i "s|url \".*\" # $arch|url \"$download_url\" # $arch|" "$formula_file"
+    sed -i "s|sha256 \".*\" # $arch|sha256 \"$sha256\" # $arch|" "$formula_file"
+  done
 }
 
 update_homebrew_formula "$@"

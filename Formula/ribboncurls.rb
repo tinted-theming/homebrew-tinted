@@ -1,14 +1,35 @@
 class Ribboncurls < Formula
   desc "Mustache template rendering engine"
   homepage "https://github.com/tinted-theming/ribboncurls"
-  url "https://api.github.com/repos/tinted-theming/ribboncurls/tarball/v0.3.0"
-  sha256 "503265ac34bbec6cd6390b68d7fa1f1ebd7ef7b827a8d2795aed72ca0ed8982c"
-  license "APACHE or MIT"
+  license "APACHE-2.0 OR MIT"
+  version ""
 
-  depends_on "rust" => :build
+  on_macos do
+    url "" # universal-apple-darwin
+    sha256 "" # universal-apple-darwin
+  end
+
+  on_linux do
+    if Hardware::CPU.intel?
+      if Hardware::CPU.is_64_bit?
+        url "" # x86_64-unknown-linux-gnu
+        sha256 "" # x86_64-unknown-linux-gnu
+      else
+        url "" # i686-unknown-linux-gnu
+        sha256 "" # i686-unknown-linux-gnu
+      end
+    elsif Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "" # aarch64-unknown-linux-gnu
+      sha256 "" # aarch64-unknown-linux-gnu
+    end
+  end
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "ribboncurls-cli"
+    if OS.mac? || (OS.linux? && (Hardware::CPU.intel? || (Hardware::CPU.arm? && Hardware::CPU.is_64_bit?)))
+      bin.install "ribboncurls"
+    else
+      system "cargo", "install", "--locked", "--root", prefix, "--path", "ribboncurls-cli"
+    end
   end
 
   test do
