@@ -2,25 +2,25 @@ class TintedBuilderRust < Formula
   desc "A base16 and base24 builder written in Rust, focused on convenience for template maintainers."
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
   license "APACHE-2.0 OR MIT"
-  version "0.10.1"
+  version "0.11.0"
 
   on_macos do
-    url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.10.1/tinted-builder-rust-universal-apple-darwin.tar.gz" # universal-apple-darwin
-    sha256 "09361fd8f35f9cb05032a11c8500bcad5cdb6380e73dd7faa0e712b3c3a664e2" # universal-apple-darwin
+    url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.11.0/tinted-builder-rust-universal-apple-darwin.tar.gz" # universal-apple-darwin
+    sha256 "5b70f271b9ac54689c03e60fe587781d85b727cd25c8874cc00c86e225bebbec" # universal-apple-darwin
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.10.1/tinted-builder-rust-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
-        sha256 "5d637f9a6a3df36ad5d113ca586b39288a221df5e850d48bfaf528c52c98725a" # x86_64-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.11.0/tinted-builder-rust-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
+        sha256 "9cc6de7e7a0d8136c98853f486f3c96d9169ec5988739be57d2dc3ee3de6b617" # x86_64-unknown-linux-gnu
       else
-        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.10.1/tinted-builder-rust-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
-        sha256 "8af2956cfd70770d79c2c69d606814b2a660cc7577b7948ed028d3a8cd26a01d" # i686-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.11.0/tinted-builder-rust-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
+        sha256 "6351f04129624d8161ebf6ffa98eac1fe84ecea682d95f98e322bfae514173a0" # i686-unknown-linux-gnu
       end
     elsif Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.10.1/tinted-builder-rust-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
-      sha256 "c003ac7f397f09d4616d1a9e59e15249a37d68988c9fe5166ccbf82c719a6c4e" # aarch64-unknown-linux-gnu
+      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.11.0/tinted-builder-rust-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
+      sha256 "0c98342d3ada3e59ff8bd7e90802f9e7284b0f0a9675bd94001dac4c788ff201" # aarch64-unknown-linux-gnu
     end
   end
 
