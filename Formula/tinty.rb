@@ -2,25 +2,25 @@ class Tinty < Formula
   desc "Change the theme of your terminal, text editor and anything else with one command."
   homepage "https://github.com/tinted-theming/tinty"
   license "MIT"
-  version "0.20.0"
+  version "0.20.1"
 
   on_macos do
-    url "https://github.com/tinted-theming/tinty/releases/download/v0.20.0/tinty-universal-apple-darwin.tar.gz" # universal-apple-darwin
-    sha256 "07b0478e7e0af8e417bf32b9e6d6cdfe5896e2161988c5c769f861365d916ae6" # universal-apple-darwin
+    url "https://github.com/tinted-theming/tinty/releases/download/v0.20.1/tinty-universal-apple-darwin.tar.gz" # universal-apple-darwin
+    sha256 "4abade42e1bb6dec4612dd7e8233d3639f5d0205333fe9e3f8b7f00aadf18d79" # universal-apple-darwin
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tinted-theming/tinty/releases/download/v0.20.0/tinty-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
-        sha256 "47aef13fb1aa18541d075b572ca142f3d7e4df6e15bead1b1057a4367b00170e" # x86_64-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinty/releases/download/v0.20.1/tinty-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
+        sha256 "3642bee0aed9e5fd83d99a49a7654d07e7c055ed63205f41c3a71950dd086531" # x86_64-unknown-linux-gnu
       else
-        url "https://github.com/tinted-theming/tinty/releases/download/v0.20.0/tinty-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
-        sha256 "2ee5bcd3838d81201034bd268300e55c95aee613e3cb26c185f5ca0e916aac99" # i686-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinty/releases/download/v0.20.1/tinty-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
+        sha256 "85de2897970a3899aafe85351a9d3d81af759ad7fb8acdec153da14084bc3db2" # i686-unknown-linux-gnu
       end
     elsif Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tinted-theming/tinty/releases/download/v0.20.0/tinty-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
-      sha256 "b5bafdc1c12186263bb3a95bef9070d49e941afa7d932c481ed7e431cbf1ba7a" # aarch64-unknown-linux-gnu
+      url "https://github.com/tinted-theming/tinty/releases/download/v0.20.1/tinty-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
+      sha256 "fe02909f472a626dd5f1a9ab3d6a5132e931f39cbbbdcdb3c88846c0e3f26a74" # aarch64-unknown-linux-gnu
     end
   end
 
