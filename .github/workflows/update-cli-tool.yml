@@ -25,7 +25,7 @@ jobs:
       - name: "Commit the changes, if any"
         uses: "stefanzweifel/git-auto-commit-action@v5"
         with:
-          commit_message: "Update Tinty formula to the latest version"
+          commit_message: "Update ${{ github.event.inputs.text_input }} formula to the latest version"
           branch: ${{ github.head_ref }}
           commit_user_name: "tinted-theming-bot"
           commit_user_email: "tintedtheming@proton.me"
