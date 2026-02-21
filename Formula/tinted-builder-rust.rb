@@ -5,7 +5,7 @@ class TintedBuilderRust < Formula
   version "0.14.1"
 
   on_macos do
-    url "" # universal-apple-darwin
+    url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.14.1/tinted-builder-rust-universal-apple-darwin.tar.gz" # universal-apple-darwin
     sha256 "" # universal-apple-darwin
   end
 
