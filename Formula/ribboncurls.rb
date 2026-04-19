@@ -5,8 +5,13 @@ class Ribboncurls < Formula
   version "0.5.0"
 
   on_macos do
-    url "https://github.com/tinted-theming/ribboncurls/releases/download/v0.5.0/ribboncurls-universal-apple-darwin.tar.gz" # universal-apple-darwin
-    sha256 "16246c437b1143c1b6750c44a8feb051972124dd3a64a0cf7622cf351e6bf0b5" # universal-apple-darwin
+    if Hardware::CPU.arm?
+      url "https://github.com/tinted-theming/ribboncurls/releases/download/v0.5.0/ribboncurls-aarch64-apple-darwin.tar.gz" # aarch64-apple-darwin
+      sha256 "319a8d9a1acae81f5942392b7eafa93c4e5730879e0632a2b621de27fcd0e064" # aarch64-apple-darwin
+    elsif Hardware::CPU.intel?
+      url "https://github.com/tinted-theming/ribboncurls/releases/download/v0.5.0/ribboncurls-x86_64-apple-darwin.tar.gz" # x86_64-apple-darwin
+      sha256 "afa5f2173a86cb809d12a1475706d58ba0b82eddaa112196ffb0fe64d8ffce69" # x86_64-apple-darwin
+    end
   end
 
   on_linux do

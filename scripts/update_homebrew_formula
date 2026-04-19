@@ -2,22 +2,21 @@
 
 update_homebrew_formula() {
   local app_name="$1"
-  local repo="tinted-theming/$app_name"
   local formula_file="Formula/$app_name.rb"
 
   local architectures=(
-    "universal-apple-darwin"
+    "aarch64-apple-darwin"
+    "x86_64-apple-darwin"
     "x86_64-unknown-linux-gnu"
     "i686-unknown-linux-gnu"
     "aarch64-unknown-linux-gnu"
   )
 
-  local urls=()
-  local sha256s=()
-
   local latest_version=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".tag_name")
   latest_version=${latest_version#v}
   sed -i "s|version \".*\"$|version \"$latest_version\"|" "$formula_file"
+
+  echo "$latest_version"
 
   for arch in "${architectures[@]}"; do
     local filename="$app_name-$arch.tar.gz"
@@ -25,6 +24,9 @@ update_homebrew_formula() {
     local sha256_filename="$app_name-$arch.sha256"
     local sha256_download_url=$(curl -s "https://api.github.com/repos/tinted-theming/$app_name/releases/latest" | jq -r ".assets[] | select(.name == \"$sha256_filename\") | .browser_download_url")
     local sha256=$(curl -sL "$sha256_download_url" | awk '{print $1}')
+
+    echo "$filename"
+    echo "$sha256"
 
     sed -i "s|url \".*\" # $arch|url \"$download_url\" # $arch|" "$formula_file"
     sed -i "s|sha256 \".*\" # $arch|sha256 \"$sha256\" # $arch|" "$formula_file"
