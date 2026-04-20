@@ -1,7 +1,7 @@
 class Tinty < Formula
   desc "Change the theme of your terminal, text editor and anything else with one command."
   homepage "https://github.com/tinted-theming/tinty"
-  license "MIT"
+  license "GPL-3.0"
   version "0.31.0"
 
   on_macos do

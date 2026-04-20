@@ -1,7 +1,7 @@
 class Ribboncurls < Formula
   desc "Mustache template rendering engine"
   homepage "https://github.com/tinted-theming/ribboncurls"
-  license "APACHE-2.0 OR MIT"
+  license "MPL-2.0"
   version "0.5.0"
 
   on_macos do

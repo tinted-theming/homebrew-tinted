@@ -1,7 +1,7 @@
 class TintedBuilderRust < Formula
-  desc "A base16 and base24 builder written in Rust, focused on convenience for template maintainers."
+  desc "A base16, base24 and tinted8 builder written in Rust, focused on convenience for template maintainers."
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
-  license "APACHE-2.0 OR MIT"
+  license "GPL-3.0"
   version "0.17.0"
 
   on_macos do
