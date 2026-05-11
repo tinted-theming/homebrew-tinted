@@ -2,30 +2,30 @@ class TintedBuilderRust < Formula
   desc "A base16, base24 and tinted8 builder written in Rust, focused on convenience for template maintainers."
   homepage "https://github.com/tinted-theming/tinted-builder-rust"
   license "GPL-3.0"
-  version "0.17.0"
+  version "0.20.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.17.0/tinted-builder-rust-aarch64-apple-darwin.tar.gz" # aarch64-apple-darwin
-      sha256 "3f5cce350b5f8e40573c83adf293b3966c434939c0fbbc3b02a34410f883c2ab" # aarch64-apple-darwin
+      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.20.1/tinted-builder-rust-aarch64-apple-darwin.tar.gz" # aarch64-apple-darwin
+      sha256 "2405d87f7d872c49fa952496b1958bb2e8c01d08af5196521222fd9463f79e62" # aarch64-apple-darwin
     elsif Hardware::CPU.intel?
-      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.17.0/tinted-builder-rust-x86_64-apple-darwin.tar.gz" # x86_64-apple-darwin
-      sha256 "09373cd005d5ca11ef6015b02c3b5302e47f69326ce5b7c33d639bf95b295ad6" # x86_64-apple-darwin
+      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.20.1/tinted-builder-rust-x86_64-apple-darwin.tar.gz" # x86_64-apple-darwin
+      sha256 "6279d19a2c94c43341b6e4f6b13658d0c98e9633304f0c59a0abbb46b0081a71" # x86_64-apple-darwin
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.17.0/tinted-builder-rust-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
-        sha256 "803cbada2a5a6f589d73ceedec79c04db6e30a9ad5d61aa35da3049792baa642" # x86_64-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.20.1/tinted-builder-rust-x86_64-unknown-linux-gnu.tar.gz" # x86_64-unknown-linux-gnu
+        sha256 "fdb31d448b6e5eb05c35117955e27cc2f8199acb8f64f6ebf7b301b4c0937b03" # x86_64-unknown-linux-gnu
       else
-        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.17.0/tinted-builder-rust-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
-        sha256 "3841a38f17a54eed4850f28baff66b2225114f85876c5742d46ad1ba971c7b02" # i686-unknown-linux-gnu
+        url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.20.1/tinted-builder-rust-i686-unknown-linux-gnu.tar.gz" # i686-unknown-linux-gnu
+        sha256 "8da0c97c84c55197e49b4c4531042090b850a9ccfee8d3987ee59433fcef62e5" # i686-unknown-linux-gnu
       end
     elsif Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.17.0/tinted-builder-rust-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
-      sha256 "cddfb2797718c9df6416d20dee075f7870960f2b4336aa6ae82b83e2133d485d" # aarch64-unknown-linux-gnu
+      url "https://github.com/tinted-theming/tinted-builder-rust/releases/download/v0.20.1/tinted-builder-rust-aarch64-unknown-linux-gnu.tar.gz" # aarch64-unknown-linux-gnu
+      sha256 "245783d5aae04be56e6b0289776a74b095b398d272876da7babb0917fe6e2c0e" # aarch64-unknown-linux-gnu
     end
   end
 
